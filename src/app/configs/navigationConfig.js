@@ -37,7 +37,7 @@ const navigationConfig = [
         title: 'Athletes',
         type: 'item',
         icon: 'material-outline:apps',
-        url: '/ui/tailwindcss',
+        url: '/athletes/main',
       },
       {
         id: 'athletes.market',

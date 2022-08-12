@@ -7,6 +7,7 @@ import appsConfigs from '../main/apps/appsConfigs';
 import pagesConfigs from '../main/pages/pagesConfigs';
 import authRoleExamplesConfigs from '../main/auth/authRoleExamplesConfigs';
 import walletConfigs from '../main/wallet/walletConfigs';
+import athletesConfigs from '../main/athletes/athletesConfigs';
 
 const routeConfigs = [
   ...appsConfigs,
@@ -14,6 +15,7 @@ const routeConfigs = [
   ...pagesConfigs,
   ...authRoleExamplesConfigs,
   ...walletConfigs,
+  ...athletesConfigs,
 ];
 
 const routes = [
