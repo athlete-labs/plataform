@@ -8,12 +8,14 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
-import HdrAutoIcon from '@mui/icons-material/HdrAuto';
+import AssuredWorkloadIcon from '@mui/icons-material/AssuredWorkload';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import PoolIcon from '@mui/icons-material/Pool';
 import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import { red, white } from 'tailwindcss/colors';
 import MainWalletAppHeader from './MainWalletAppHeader';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
@@ -54,11 +56,14 @@ function MainWalletApp() {
                   Coins
                 </Typography>
               </div>
-              <div className="text-right">
+              <Stack direction="row" spacing={2} justifyContent="right">
                 <Button variant="outlined" href="#outlined-buttons">
-                  Send tokens
+                  Send
                 </Button>
-              </div>
+                <Button variant="outlined" href="#outlined-buttons">
+                  Swap
+                </Button>
+              </Stack>
               <List
                 sx={{
                   width: '100%',
@@ -68,9 +73,7 @@ function MainWalletApp() {
               >
                 <ListItem>
                   <ListItemAvatar>
-                    <Avatar>
-                      <HdrAutoIcon />
-                    </Avatar>
+                    <Avatar sx={{ bgcolor: red[400], color: white }}>A</Avatar>
                   </ListItemAvatar>
                   <ListItemText
                     primary={
@@ -150,7 +153,22 @@ function MainWalletApp() {
           </motion.div>
           <motion.div variants={item} className="sm:col-span-12 md:col-span-4">
             <Paper className="flex flex-col flex-auto p-24 shadow rounded-2xl overflow-hidden">
-              <div className="flex flex-col sm:flex-row items-start justify-between">Texto</div>
+              <div className="flex flex-col sm:flex-row items-start justify-between">
+                <Typography className="text-lg font-medium tracking-tight leading-12 truncate">
+                  Proof of Stake
+                </Typography>
+              </div>
+              <Stack direction="row" spacing={2} justifyContent="right">
+                <AssuredWorkloadIcon fontSize="large" />
+              </Stack>
+              <Typography className="text-1x1 tracking-tight leading-12 p-24">
+                Stake ATH earn rewards and improve your position in the governance system
+              </Typography>
+              <Stack direction="row" spacing={2} justifyContent="center">
+                <Button variant="outlined" href="#outlined-buttons">
+                  Stake ATH
+                </Button>
+              </Stack>
             </Paper>
           </motion.div>
         </motion.div>
