@@ -19,11 +19,10 @@ const routeConfigs = [
 ];
 
 const routes = [
-  ...FuseUtils.generateRoutesFromConfigs(routeConfigs, settingsConfig.defaultAuth),
+  ...FuseUtils.generateRoutesFromConfigs(routeConfigs),
   {
     path: '/',
-    element: <Navigate to="dashboards/project" />,
-    auth: settingsConfig.defaultAuth,
+    element: <Navigate to="dashboards/project" />
   },
   {
     path: 'loading',
