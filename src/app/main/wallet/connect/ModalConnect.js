@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import LinkBox from 'app/theme-layouts/shared-components/LinkBox';
 
 function ModalConnect(props) {
   const [open, setOpen] = React.useState(false);
@@ -16,9 +17,9 @@ function ModalConnect(props) {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 600,
-    bgcolor: 'background.paper',
+    bgcolor: 'background.default',
     boxShadow: 24,
-    opacity: 0.95,
+    opacity: 0.99,
     p: 4,
   };
 
@@ -53,8 +54,10 @@ function ModalConnect(props) {
             </span>
           </div>
           <Typography gutterBottom>2. Choose Network</Typography>
-          <div className="w-300 h-300 rounded-full">
-            <img className="object-cover" src="assets/icons/polygon-matic.svg" alt="matic" />
+          <div className="grid grid-cols-3 gap-12 w-full min-w-0 p-12">
+            <LinkBox src="assets/icons/polygon-matic.svg" alt="Polygon" />
+            <LinkBox src="assets/icons/polygon-matic.svg" alt="Polygon" />
+            <LinkBox src="assets/icons/polygon-matic.svg" alt="Polygon" />
           </div>
           <Typography gutterBottom>3. Choose Wallet</Typography>
         </Box>
