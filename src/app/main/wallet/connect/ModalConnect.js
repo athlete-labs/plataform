@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
@@ -23,6 +23,15 @@ function ModalConnect(props) {
     p: 4,
   };
 
+  const toggleLink = (e) => {
+    Array.from(e.currentTarget.parentElement.children).forEach((element) => {
+      element.classList.remove('linkBoxActive');
+      element.classList.add('linkBoxInative');
+    });
+    e.currentTarget.classList.remove('linkBoxInative');
+    e.currentTarget.classList.add('linkBoxActive');
+  };
+
   return (
     <>
       <Button
@@ -40,7 +49,9 @@ function ModalConnect(props) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography gutterBottom>1. Accept</Typography>
+          <Typography variant="h5">Connect Wallet</Typography>
+          <br />
+          <Typography>1. Accept</Typography>
           <div>
             <Checkbox color="primary" inputProps={{ 'aria-label': 'secondary checkbox' }} />
             <span>
@@ -53,13 +64,48 @@ function ModalConnect(props) {
               </Link>
             </span>
           </div>
-          <Typography gutterBottom>2. Choose Network</Typography>
+          <Typography>2. Choose Network</Typography>
           <div className="grid grid-cols-3 gap-12 w-full min-w-0 p-12">
-            <LinkBox src="assets/icons/polygon-matic.svg" alt="Polygon" />
-            <LinkBox src="assets/icons/polygon-matic.svg" alt="Polygon" />
-            <LinkBox src="assets/icons/polygon-matic.svg" alt="Polygon" />
+            <LinkBox
+              className="p-32 w-160 linkBoxInative"
+              src="assets/icons/polygon.svg"
+              alt="Polygon"
+              onClick={toggleLink}
+            />
+            <LinkBox
+              className="p-32 w-160 linkBoxInative"
+              src="assets/icons/bnbchain.svg"
+              alt="BNB Chain"
+              onClick={toggleLink}
+            />
+            <LinkBox
+              className="p-32 w-160 linkBoxInative"
+              src="assets/icons/ethereum.svg"
+              alt="Ehtereum"
+              onClick={toggleLink}
+            />
           </div>
-          <Typography gutterBottom>3. Choose Wallet</Typography>
+          <Typography>3. Choose Wallet</Typography>
+          <div className="grid grid-cols-3 gap-12 w-full min-w-0 p-12">
+            <LinkBox
+              className="p-32 w-160 linkBoxInative"
+              src="assets/icons/metamask.svg"
+              alt="Metamask"
+              onClick={toggleLink}
+            />
+            <LinkBox
+              className="p-32 w-160 linkBoxInative"
+              src="assets/icons/bnbchain.svg"
+              alt="Binance Wallet"
+              onClick={toggleLink}
+            />
+            <LinkBox
+              className="p-32 w-160 linkBoxInative"
+              src="assets/icons/walletconnect.svg"
+              alt="WalletConnect"
+              onClick={toggleLink}
+            />
+          </div>
         </Box>
       </Modal>
     </>

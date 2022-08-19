@@ -1,0 +1,14 @@
+.linkBoxActive {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ea425a;
+    background-color: #28282e;
+    cursor: pointer;
+}
+
+.linkBoxInative {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #2e3337;
+    cursor: pointer;
+}

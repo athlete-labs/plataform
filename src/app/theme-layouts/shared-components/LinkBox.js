@@ -3,10 +3,12 @@ import Typography from '@mui/material/Typography';
 
 function LinkBox(props) {
   return (
-    <Paper className="p-32 w-160" align="center">
-      <div className="w-60 h-80">
+    <Paper className={props.className} onClick={props.onClick} align="center" square>
+      <div className="w-100 h-80">
         <img width={60} height={80} src={props.src} alt={props.alt} />
-        <Typography align="center">{props.alt}</Typography>
+        <Typography variant="caption" align="center">
+          {props.alt}
+        </Typography>
       </div>
     </Paper>
   );
