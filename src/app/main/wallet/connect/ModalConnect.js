@@ -24,12 +24,14 @@ function ModalConnect(props) {
   };
 
   const toggleLink = (e) => {
-    Array.from(e.currentTarget.parentElement.children).forEach((element) => {
-      element.classList.remove('linkBoxActive');
-      element.classList.add('linkBoxInative');
-    });
-    e.currentTarget.classList.remove('linkBoxInative');
-    e.currentTarget.classList.add('linkBoxActive');
+    if (!e.currentTarget.classList.contains('linkBoxDisabled')) {
+      Array.from(e.currentTarget.parentElement.children).forEach((element) => {
+        element.classList.remove('linkBoxActive');
+        element.classList.add('linkBoxInative');
+      });
+      e.currentTarget.classList.remove('linkBoxInative');
+      e.currentTarget.classList.add('linkBoxActive');
+    }
   };
 
   return (
@@ -73,13 +75,13 @@ function ModalConnect(props) {
               onClick={toggleLink}
             />
             <LinkBox
-              className="p-32 w-160 linkBoxInative"
+              className="p-32 w-160 linkBoxDisabled"
               src="assets/icons/bnbchain.svg"
               alt="BNB Chain"
               onClick={toggleLink}
             />
             <LinkBox
-              className="p-32 w-160 linkBoxInative"
+              className="p-32 w-160 linkBoxDisabled"
               src="assets/icons/ethereum.svg"
               alt="Ehtereum"
               onClick={toggleLink}
@@ -94,7 +96,7 @@ function ModalConnect(props) {
               onClick={toggleLink}
             />
             <LinkBox
-              className="p-32 w-160 linkBoxInative"
+              className="p-32 w-160 linkBoxDisabled"
               src="assets/icons/bnbchain.svg"
               alt="Binance Wallet"
               onClick={toggleLink}
