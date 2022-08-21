@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
@@ -27,11 +27,17 @@ function ModalConnect(props) {
     if (!e.currentTarget.classList.contains('linkBoxDisabled')) {
       Array.from(e.currentTarget.parentElement.children).forEach((element) => {
         element.classList.remove('linkBoxActive');
-        element.classList.add('linkBoxInative');
+        if (!element.classList.contains('linkBoxDisabled')) {
+          element.classList.add('linkBoxInative');
+        }
       });
       e.currentTarget.classList.remove('linkBoxInative');
       e.currentTarget.classList.add('linkBoxActive');
     }
+  };
+
+  const handleConnect = (e) => {
+    console.log('connect');
   };
 
   return (
@@ -58,10 +64,11 @@ function ModalConnect(props) {
             <Checkbox color="primary" inputProps={{ 'aria-label': 'secondary checkbox' }} />
             <span>
               I read and accept the
-              <Link to="/terms" target="_blank">
+              <Link className="p-4" href="/terms" target="_blank">
                 Terms of Service
               </Link>
-              <Link to="/privacy" target="_blank">
+              and
+              <Link className="p-4" href="/privacy" target="_blank">
                 Privacy Policy
               </Link>
             </span>
@@ -69,9 +76,9 @@ function ModalConnect(props) {
           <Typography>2. Choose Network</Typography>
           <div className="grid grid-cols-3 gap-12 w-full min-w-0 p-12">
             <LinkBox
-              className="p-32 w-160 linkBoxInative"
-              src="assets/icons/polygon.svg"
-              alt="Polygon"
+              className="p-32 w-160 linkBoxDisabled"
+              src="assets/icons/ethereum.svg"
+              alt="Ehtereum"
               onClick={toggleLink}
             />
             <LinkBox
@@ -81,9 +88,27 @@ function ModalConnect(props) {
               onClick={toggleLink}
             />
             <LinkBox
+              className="p-32 w-160 linkBoxInative"
+              src="assets/icons/polygon.svg"
+              alt="Polygon"
+              onClick={toggleLink}
+            />
+            <LinkBox
+              className="p-32 w-160 linkBoxInative"
+              src="assets/icons/fantom.svg"
+              alt="Fantom"
+              onClick={toggleLink}
+            />
+            <LinkBox
               className="p-32 w-160 linkBoxDisabled"
-              src="assets/icons/ethereum.svg"
-              alt="Ehtereum"
+              src="assets/icons/avalanche.svg"
+              alt="Avalanche"
+              onClick={toggleLink}
+            />
+            <LinkBox
+              className="p-32 w-160 linkBoxDisabled"
+              src="assets/icons/arbitrum.svg"
+              alt="Arbitrum"
               onClick={toggleLink}
             />
           </div>
@@ -107,6 +132,17 @@ function ModalConnect(props) {
               alt="WalletConnect"
               onClick={toggleLink}
             />
+          </div>
+          <br />
+          <div align="right" className="gap-12 p-12">
+            <Button
+              onClick={handleConnect}
+              className="whitespace-nowrap"
+              variant="contained"
+              color="primary"
+            >
+              Connect
+            </Button>
           </div>
         </Box>
       </Modal>

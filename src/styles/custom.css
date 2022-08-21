@@ -13,10 +13,7 @@
     cursor: pointer;
 }
 
-.linkBoxDisabled {
-    border-width: 2px;
-    border-style: solid;
-    border-color: #2e3337;
+.linkBoxDisabled img {
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
